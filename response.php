@@ -26,6 +26,15 @@
             right: 0px;
             text-align: center;
         }
+        tajwid{
+            /* direction:rtl; */
+            font-size:1.6em;
+        }
+        #arabic{
+            direction: rtl;
+            unicode-bidi: bidi-override;
+        }
+        .i
     </style>
 </head>
 
@@ -74,7 +83,9 @@
             ?>
         </ul>
         <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
-        <script src="huruf.js"></script>
+        <div id='hasil'> </div>
+        <span id="arab" style="direction:rtl"></span>
+        <script src="script.js"></script>
     </main>
     <footer>Copyright &copy;ز </footer>
 </body>
