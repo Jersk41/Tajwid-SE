@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 06:08 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Jan 06, 2021 at 10:07 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -79,7 +79,7 @@ INSERT INTO `huruf` (`id_huruf`, `nama_huruf`, `hijaiyah`, `makhroj`, `sifat`) V
 CREATE TABLE `makhroj` (
   `id_makhroj` varchar(3) CHARACTER SET latin1 NOT NULL,
   `nama_makhroj` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `arti_makhroj` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `arti_makhroj` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `tempat_makhroj` varchar(16) CHARACTER SET latin1 NOT NULL,
   `deskripsi` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -90,22 +90,22 @@ CREATE TABLE `makhroj` (
 
 INSERT INTO `makhroj` (`id_makhroj`, `nama_makhroj`, `arti_makhroj`, `tempat_makhroj`, `deskripsi`) VALUES
 ('m1', 'Al-Jauf', 'Lubang Mulut', 'Al-Jauf', ''),
-('m10', 'Thorful Lisani Tahtal makhroji', '', 'Al-Lisan', ''),
-('m11', 'Dhorurrosil Lisani', '', 'Al-Lisan', ''),
-('m12', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', '', 'Al-Lisan', ''),
-('m13', 'Thorful Lisani Wamin FauQis tsanayal Ulya', '', 'Al-Lisan', ''),
-('m14', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', '', 'Al-Lisan', ''),
-('m15', 'Mimba\'A Nis Tsafatis Sufla Ma\'A Athrofis tsanayal ', '', 'Asy-Syafatain', ''),
-('m16', 'Bainasyafatani', '', 'Asy-Syafatain', ''),
-('m17', 'Al-Khoisum', '', 'Al-Khoisum', ''),
+('m10', 'Thorful Lisani Tahtal makhroji', 'Ujung Lidah bagian Bawah Makroj ل (Lam ) ', 'Al-Lisan', ''),
+('m11', 'Dhorurrosil Lisani', 'Punggung Pangkal Lidah', 'Al-Lisan', ''),
+('m12', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Atas Bagian Dalam', 'Al-Lisan', ''),
+('m13', 'Thorful Lisani Wamin FauQis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Bawah', 'Al-Lisan', ''),
+('m14', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Ujung Gigi Seri Atas', 'Al-Lisan', ''),
+('m15', 'Mimba\'A Nis Tsafatis Sufla Ma\'A Athrofis tsanayal ', 'Perut Bibir Bawah Bagian Dalam Dirapatkan dengan Ujung Gigi Seri atas', 'Asy-Syafatain', ''),
+('m16', 'Bainasyafatani', 'Diantara 2(dua) Bibir', 'Asy-Syafatain', ''),
+('m17', 'Al-Khoisum', 'Lubang Hidung', 'Al-Khoisum', ''),
 ('m2', 'Aqshal halqi', 'Pangkal Tenggorokan', 'Al-Halaq', ''),
 ('m3', 'Wasthul halqi', 'Tengah Tenggorokan', 'Al-Halaq', ''),
-('m4', 'Adnal halqiy', '', 'Al-Halaq', ''),
-('m5', 'Aqshal Lisani Fauqu', '', 'Al-Lisan', ''),
-('m6', 'Aqshal Lisani Asfalu', '', 'Al-Lisan', ''),
-('m7', 'Wasthul Lisani', '', 'Al-Lisan', ''),
-('m8', 'Hafatil Lisani Ma\'A Adrosi', '', 'Al-Lisan', ''),
-('m9', 'Ad\'dnal Lisani Limun TaHaHa', '', 'Al-Lisan', '');
+('m4', 'Adnal halqiy', 'Ujung Tenggorokan', 'Al-Halaq', ''),
+('m5', 'Aqshal Lisani Fauqu', 'Pangkal Lidah Bagian Atas', 'Al-Lisan', ''),
+('m6', 'Aqshal Lisani Asfalu', 'Pangkal Lidah Bagian Bawah', 'Al-Lisan', ''),
+('m7', 'Wasthul Lisani', 'Tengah Tengah Lidah', 'Al-Lisan', ''),
+('m8', 'Hafatil Lisani Ma\'A Adrosi', 'Dua Samping Lidah Samping Kiri atau Kanan Dirapat dengan Gigi graham', 'Al-Lisan', ''),
+('m9', 'Ad\'dnal Lisani Limun TaHaHa', 'Ujung Lidah Sampai Akhirnya', 'Al-Lisan', '');
 
 -- --------------------------------------------------------
 
