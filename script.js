@@ -1,27 +1,37 @@
 // (ً|ٍ|ٌ|نْ)
 // regex hukum izhar
-let izhar = "(?:(نْ|ً|ٌ|ٍ)((ء|ئ|ؤ|أ|ء)|ه|ع|ح|غ|خ)|(ً|ٍ|ٌ|نْ).((ئ|ؤ|أ|ء|ا)|ه|ع|ح|غ|خ))";
+const idzhar = "(?:(نْ|ً|ٌ|ٍ)((ء|ئ|ؤ|أ|ء)|ه|ع|ح|غ|خ)|(ً|ٍ|ٌ|نْ).((ئ|ؤ|أ|ء|ا)|ه|ع|ح|غ|خ))";
 //alternative regex ((ً|ٍ|ٌ|نْ)(ء|ه|ع|ح|غ|خ)|(ً|ٍ|ٌ|نْ).((ئ|ؤ|أ|ء|ا)|ه|ع|ح|غ|خ))
 // regex hukum idhgom bila gunnah v2 enchanted
-let bilaGunnah = "((?:(نْ|ً|ٌ|ٍ).(ل|ر))|(?:(نْ|ً|ٌ|ٍ)ا.(ر|ل)))";
-let bigunnah = "((?:(نْ|ً|ٌ|ٍ).(ي|ن|م|و)|(?:(نْ|ً|ٌ|ٍ)ا.(ي|ن|م|و))))";
-let iqlab = "(?:(نْ|ً|ٌ|ٍ).ب|(نْ|ً|ٌ|ٍ)ب)";
-let ikhfaAbd = "(ً|ٍ|ٌ|نْ).(ق|ك)|(ً|ٍ|ٌ|نْ)(ق|ك)|(?:(ً|ٍ|ٌ|نْ)ا.(ق|ك))";
-let ikhfaAqrab = "(ً|ٍ|ٌ|نْ)(ت|ط|د)|(ً|ٍ|ٌ|نْ).(ت|ط|د)|(?:(ً|ٍ|ٌ|نْ)ا.(ت|ط|د))";
-let ikhfaAusat = "(ً|ٍ|ٌ|نْ)(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(ً|ٍ|ٌ|نْ).(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(?:(ً|ٍ|ٌ|نْ)ا.(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف))";
+const bilaGunnah = "((?:(نْ|ً|ٌ|ٍ).(ل|ر))|(?:(نْ|ً|ٌ|ٍ)ا.(ر|ل)))";
+const bigunnah = "((?:(نْ|ً|ٌ|ٍ).(ي|ن|م|و)|(?:(نْ|ً|ٌ|ٍ)ا.(ي|ن|م|و))))";
+const iqlab = "(?:(نْ|ً|ٌ|ٍ).ب|(نْ|ً|ٌ|ٍ)ب)";
+const ikhfaAbd = "(ً|ٍ|ٌ|نْ).(ق|ك)|(ً|ٍ|ٌ|نْ)(ق|ك)|(?:(ً|ٍ|ٌ|نْ)ا.(ق|ك))";
+const ikhfaAqrab = "(ً|ٍ|ٌ|نْ)(ت|ط|د)|(ً|ٍ|ٌ|نْ).(ت|ط|د)|(?:(ً|ٍ|ٌ|نْ)ا.(ت|ط|د))";
+const ikhfaAusat = "(ً|ٍ|ٌ|نْ)(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(ً|ٍ|ٌ|نْ).(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(?:(ً|ٍ|ٌ|نْ)ا.(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف))";
+const ikhfaSyafawi = "(مْ.ب)";
+const idghomMimi = "(مْ.م)";
+const idzharSyafawi = "(مْ.[^م|ب])";
+const gunnah = "نّ|مّ";
+const raTafkhim = "(رَ|رُ|(?:(َ|ُ)رْ)|(?:أِرْ))|(?:(ِ)رْ(خ|ص|ض|غ|ط|ق|ض))";
+
 
 const hukum = [];
-hukum.push(izhar);
-hukum.push(bigunnah)
-hukum.push(bilaGunnah);
-hukum.push(iqlab);
-hukum.push(ikhfaAbd);
-hukum.push(ikhfaAqrab);
-hukum.push(ikhfaAusat);
-
+hukum.push(idzhar); // array hukum index ke-0
+hukum.push(bigunnah) // array hukum index ke-1
+hukum.push(bilaGunnah);// array hukum index ke-2
+hukum.push(iqlab);// array hukum index ke-3
+hukum.push(ikhfaAbd); // array hukum index ke-4
+hukum.push(ikhfaAqrab); // array hukum index ke-5
+hukum.push(ikhfaAusat); // array hukum index ke-6
+hukum.push(ikhfaSyafawi); // array hukum index ke-7
+hukum.push(idghomMimi); // array hukum index ke-8
+hukum.push(idzharSyafawi); // array hukum index ke-9
+hukum.push(gunnah) // array hukum index ke-10
+hukum.push(raTafkhim); // array hukum index ke-11
 
 let a =0;
-while (a<hukum.length) {
+while (a < hukum.length) {
     console.log(hukum[a]);
     a++;
 } 
@@ -43,9 +53,9 @@ if (hasilPencarian.length > 0) {
             // console.log(idx);
             innerHtml =
                 innerHtml.substring(0, idx) +
-                "<span class='highlight'>" +
+                "<tajwid class='highlight code-b'>" +
                 innerHtml.substring(idx, idx + hasilPencarian[i].length) +
-                "</span>" +
+                "</tajwid>" +
                 innerHtml.substring(idx + hasilPencarian[i].length);
             elList += innerHtml;
         }
@@ -53,5 +63,4 @@ if (hasilPencarian.length > 0) {
     }
 }
 
-document.querySelector("#hasil").innerHTML = `Input user : ${elList} Hasilnya : `;
-// document.querySelector("#arab").innerHTML  = ;
+document.querySelector("#arab").innerHTML = elList;
