@@ -14,7 +14,9 @@ const idghomMimi = "(مْ.م)";
 const idzharSyafawi = "(مْ.[^م|ب])";
 const gunnah = "نّ|مّ";
 const raTafkhim = "(رَ|رُ|(?:(َ|ُ)رْ)|(?:أِرْ))|(?:(ِ)رْ(خ|ص|ض|غ|ط|ق|ض))";
-
+const raTarqiq = "(?:رِ|يْ.|ِرْ[^خ|ص|ض|غ|ط|ق|ض])";
+const alQomariyah = "(?:الْ(ء|ب|غ|ح|ج|ك|و|خ|ف|ع|ق|ي|م|ه))";
+const asSyamsyiah = "(?:الْ(ء|ب|غ|ح|ج|ك|و|خ|ف|ع|ق|ي|م|ه))";
 
 const hukum = [];
 hukum.push(idzhar); // array hukum index ke-0
@@ -29,12 +31,10 @@ hukum.push(idghomMimi); // array hukum index ke-8
 hukum.push(idzharSyafawi); // array hukum index ke-9
 hukum.push(gunnah) // array hukum index ke-10
 hukum.push(raTafkhim); // array hukum index ke-11
+hukum.push(raTarqiq); // array hukum index ke-12
+hukum.push(alQomariyah); // array hukum index ke-13
+hukum.push(asSyamsyiah); // array hukum index ke-14
 
-let a =0;
-while (a < hukum.length) {
-    console.log(hukum[a]);
-    a++;
-} 
 
 // implementasi hukum
 let raw = document.querySelector("#rawWord").value;
@@ -44,7 +44,6 @@ console.log(hasilPencarian);
 
 const element = document.getElementById("rawWord");
 let innerHtml = element.value;
-let elList = "";
 if (hasilPencarian.length > 0) {
     let i = 0;
     while (i < hasilPencarian.length) {
@@ -57,10 +56,9 @@ if (hasilPencarian.length > 0) {
                 innerHtml.substring(idx, idx + hasilPencarian[i].length) +
                 "</tajwid>" +
                 innerHtml.substring(idx + hasilPencarian[i].length);
-            elList += innerHtml;
         }
         i++;
     }
 }
 
-document.querySelector("#arab").innerHTML = elList;
+document.querySelector("#arab").innerHTML = innerHtml;
