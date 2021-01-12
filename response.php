@@ -28,13 +28,18 @@
         }
         tajwid{
             /* direction:rtl; */
-            font-size:1.6em;
+            /* font-size:1.6em; */
         }
-        #arabic{
+        #arab{
             direction: rtl;
             unicode-bidi: bidi-override;
         }
-        .i
+        .highlight{
+            background:yellow;
+        }
+        .code-b{
+            /* color:skyblue; */
+        }
     </style>
 </head>
 
