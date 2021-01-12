@@ -1,0 +1,82 @@
+body {
+    font-size: 1.2em;
+    /*display: flex;*/
+}
+
+li.huruf {
+    margin-top: 20px;
+}
+
+ul.sifat {
+    list-style-type: square;
+}
+
+footer {
+    position: static;
+    background: black;
+    color: white;
+    padding: 7px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
+
+/* tajwid{
+    direction:rtl;
+    font-size:1.6em; 
+}*/
+#arab {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    margin: 10px;
+}
+
+.highlight {
+    background: yellow;
+}
+
+.tajwid-0,
+.tajwid-9,
+.tajwid-14 {
+    color: #AAAAAA;
+}
+
+.tajwid-1 {
+    color: #169777;
+}
+
+.tajwid-2 {
+    color: #169200;
+}
+
+.tajwid-3 {
+    color: #26BFFD;
+}
+
+.tajwid-4,
+.tajwid-5,
+.tajwid-6 {
+    color: #9400A8;
+}
+
+.tajwid-7 {
+    color: #D500B7;
+}
+
+.tajwid-8 {
+    color: #58B800;
+}
+
+.tajwid-9 {
+    color: #2d51b5;
+}
+
+.tajwid-10 {
+    color: #FF7E1E;
+}
+
+.tajwid-11,
+.tajwid-12 {
+    color: #6a6d59;
+}
