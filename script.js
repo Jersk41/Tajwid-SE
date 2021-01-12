@@ -11,12 +11,13 @@ const ikhfaAqrab = "(ً|ٍ|ٌ|نْ)(ت|ط|د)|(ً|ٍ|ٌ|نْ).(ت|ط|د)|(?:(ً|
 const ikhfaAusat = "(ً|ٍ|ٌ|نْ)(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(ً|ٍ|ٌ|نْ).(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف)|(?:(ً|ٍ|ٌ|نْ)ا.(ث|ج|ذ|ز|س|ش|ص|ض|ظ|ف))";
 const ikhfaSyafawi = "(مْ.ب)";
 const idghomMimi = "(مْ.م)";
-const idzharSyafawi = "(مْ.[^م|ب])";
+const idzharSyafawi = "(مْ.[^مب])";
 const gunnah = "نّ|مّ";
 const raTafkhim = "(رَ|رُ|(?:(َ|ُ)رْ)|(?:أِرْ))|(?:(ِ)رْ(خ|ص|ض|غ|ط|ق|ض))";
 const raTarqiq = "(?:رِ|يْ.|ِرْ[^خ|ص|ض|غ|ط|ق|ض])";
 const alQomariyah = "(?:الْ(ء|ب|غ|ح|ج|ك|و|خ|ف|ع|ق|ي|م|ه))";
 const asSyamsyiah = "(?:الْ(ء|ب|غ|ح|ج|ك|و|خ|ف|ع|ق|ي|م|ه))";
+const qolqolah = "(قْ|طْ|بْ|جْ|دْ)";
 
 const hukum = [];
 hukum.push(idzhar); // array hukum index ke-0
@@ -34,28 +35,41 @@ hukum.push(raTafkhim); // array hukum index ke-11
 hukum.push(raTarqiq); // array hukum index ke-12
 hukum.push(alQomariyah); // array hukum index ke-13
 hukum.push(asSyamsyiah); // array hukum index ke-14
-
+hukum.push(qolqolah); // array hukum index ke-15
 
 // implementasi hukum
 let raw = document.querySelector("#rawWord").value;
 let regex = new RegExp(hukum.join("|"), "mig");
-let hasilPencarian = raw.match(regex);
-console.log(hasilPencarian);
+let found = raw.match(regex);
+
+let indexTajwid = [];
+let j = 0;
+// let k = 0;
+while(j < hukum.length) {
+    const el = hukum[j];
+    let regexItem = new RegExp(el,'mgi');
+    let match = raw.match(regexItem);
+    if (match) {
+        indexTajwid.push(j);
+    }
+    j++;
+}
 
 const element = document.getElementById("rawWord");
 let innerHtml = element.value;
-if (hasilPencarian.length > 0) {
+
+if (found.length > 0) {
     let i = 0;
-    while (i < hasilPencarian.length) {
-        const idx = innerHtml.indexOf(hasilPencarian[i]);
+    while (i < found.length) {
+        const idx = innerHtml.indexOf(found[i]);
         if (idx >= 0) {
-            // console.log(idx);
+            let kodeTajwid = indexTajwid[i] ? `tajwid-${indexTajwid[i]}` : "";
             innerHtml =
                 innerHtml.substring(0, idx) +
-                "<tajwid class='highlight code-b'>" +
-                innerHtml.substring(idx, idx + hasilPencarian[i].length) +
+                `<tajwid class='${kodeTajwid}' >` +
+                innerHtml.substring(idx, idx + found[i].length) +
                 "</tajwid>" +
-                innerHtml.substring(idx + hasilPencarian[i].length);
+                innerHtml.substring(idx + found[i].length);
         }
         i++;
     }
