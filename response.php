@@ -4,56 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
-        body{
-            font-size: 1.5em;
-            /*display: flex;*/
-        }
-        li.huruf{
-            margin-top: 20px;
-        }
-        ul.sifat{
-            list-style-type: square;
-        }
-        footer{
-            position: static;
-            background: black;
-            color:white;
-            padding:7px;
-            bottom: 0px;
-            left: 0px;
-            right: 0px;
-            text-align: center;
-        }
-        tajwid{
-            /* direction:rtl; */
-            /* font-size:1.6em; */
-        }
-        #arab{
-            direction: rtl;
-            unicode-bidi: bidi-override;
-        }
-        .highlight{
-            background:yellow;
-        }
-        .code-b{
-            /* color:skyblue; */
-        }
-    </style>
+    <title>Hijaiyah Search Enginer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- framework -->
+    <script src="library/jquery-3.5.1.min.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="js/bootstrap.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+		integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
 </head>
 
 <body>
     <main>
-        <h2>Hasil Analisis dari lafadz : <?= $_POST['keyword']?></h2>
-        <h3>Makhroj & Sifat :</h3>
+        <h2 id='arab'><?= $_POST['keyword']?></h2>
+        <h3>Makhroj & Sifat : </h3>
         <ul>
             <?php
             header('Content-type: text/html; charset=UTF-8_');
-            include "function.php";
-
-            // $index = 0;
-
+            include_once "controller.php";
             if(isset($_POST['submit'])){
                 // ambil raw data dari form
                 $keywords = $_POST['keys'];
@@ -63,21 +34,23 @@
                 $keys = array_unique($wordArray);
                 // buat perulangan berdasar data yang telah dibersihkan
                 foreach ($keys as $h) {
-                    # query untuk huruf dan sifat
-                    $result = $conn->query("SELECT huruf.id_huruf,huruf.nama_huruf,huruf.hijaiyah,makhroj.nama_makhroj,makhroj.tempat_makhroj
-                    FROM huruf, makhroj
-                    WHERE huruf.makhroj=makhroj.id_makhroj;");
-                    while ($data = $result->fetch_assoc()) {
+                    # ambil data yang dibungkus dari controller.php
+                    foreach ($data as $row) {
                         // cari data (jika cocok)
-                        if ($data['hijaiyah']== $h) {
+                        if ($row['hijaiyah']== $h) {
                             // $index++;
+                            // cetak nama makhroj dan artinya
                             echo "<li class='huruf'>
-                            $h : $data[nama_makhroj]</li>";
-                            $res = $conn->query("SELECT nama_sifat,jenis_sifat FROM sifat WHERE id_huruf='$data[id_huruf]'");
+                            $h : $row[arti_makhroj] ($row[nama_makhroj])</li>";
+                            // mengambil nama sifat dan jenisnya berdasarkan id huruf
+                            $parameter = "nama_sifat,jenis_sifat";
+                            $condition =  "id_huruf='$row[id_huruf]'";
+                            $res = readSingle($parameter,$condition);
                             // tampilkan tiap sifatnya
                             echo "<ul class='sifat'>";
-                            while ($d = $res->fetch_assoc()) {
-                                echo "<li>$d[nama_sifat]</li>"; 
+                            foreach ($res as $r) {
+                                echo "<li id='" . strtolower($r['nama_sifat']) . "' >$r[nama_sifat]</li>";
+                                echo "<div class='desc-".strtolower($r['nama_sifat'])."' style='display:none;'>$r[nama_sifat]</div>";
                             }
                             echo "</ul>";
                         }
@@ -86,10 +59,16 @@
                 // echo "Hasil pencarian : " . $index;
             }
             ?>
+            <script>
+                $('.sifat li').click(e=>{
+                    console.log(e.target.id);
+                    $(`.desc-${e.target.id}`).toggle('medium');
+                });
+            </script>
         </ul>
         <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
-        <div id='hasil'> </div>
-        <span id="arab" style="direction:rtl"></span>
+        <!-- <div id='hasil'> </div> -->
+        <!-- <span id="arab" style="direction:rtl"></span> -->
         <script src="script.js"></script>
     </main>
     <footer>Copyright &copy;ز </footer>
