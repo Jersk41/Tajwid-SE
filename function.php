@@ -12,7 +12,7 @@ class Db
     public function read()
     {
         $data = [];
-        $result = $this->conn->query("SELECT h.id_huruf,h.nama_huruf,h.hijaiyah,m.nama_makhroj,m.tempat_makhroj,m.arti_makhroj
+        $result = $this->conn->query("SELECT h.id_huruf,h.nama_huruf,h.hijaiyah,m.nama_makhroj,m.tempat_makhroj,m.arti_makhroj,m.deskripsi
         FROM huruf h, makhroj m
         WHERE h.makhroj=m.id_makhroj");
         while ($row = $result->fetch_assoc()) {
