@@ -63,11 +63,11 @@
             ?>
             <script>
                 $('li.huruf').click(ev=>{
-                    console.log(ev.target);
+                    // console.log(ev.target);
                     $(`.desc-${ev.target.id}`).toggle('slow');
                 });
                 $('.sifat li').click(e=>{
-                    console.log(e);
+                    // console.log(e);
                     $(`.desc-${e.target.id}`).toggle(450);
                 });
             </script>
