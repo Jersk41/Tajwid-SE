@@ -4,56 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
-        body{
-            font-size: 1.5em;
-            /*display: flex;*/
-        }
-        li.huruf{
-            margin-top: 20px;
-        }
-        ul.sifat{
-            list-style-type: square;
-        }
-        footer{
-            position: static;
-            background: black;
-            color:white;
-            padding:7px;
-            bottom: 0px;
-            left: 0px;
-            right: 0px;
-            text-align: center;
-        }
-        tajwid{
-            /* direction:rtl; */
-            /* font-size:1.6em; */
-        }
-        #arab{
-            direction: rtl;
-            unicode-bidi: bidi-override;
-        }
-        .highlight{
-            background:yellow;
-        }
-        .code-b{
-            /* color:skyblue; */
-        }
-    </style>
+    <title>Hijaiyah Search Engine</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <main>
-        <h2>Hasil Analisis dari lafadz : <?= $_POST['keyword']?></h2>
-        <h3>Makhroj & Sifat :</h3>
+        <h2 class='display-3' id='arab'><?= $_POST['keyword']?></h2>
+        <span class='display-4'>Makhroj & Sifat :</span>
         <ul>
             <?php
-            header('Content-type: text/html; charset=UTF-8_');
+            header('Content-type: text/html; charset=UTF-8');
             include "function.php";
-
-            // $index = 0;
-
             if(isset($_POST['submit'])){
                 // ambil raw data dari form
                 $keywords = $_POST['keys'];
@@ -88,8 +50,7 @@
             ?>
         </ul>
         <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
-        <div id='hasil'> </div>
-        <span id="arab" style="direction:rtl"></span>
+        <!-- <span id="arab" style="direction:rtl"></span> -->
         <script src="script.js"></script>
     </main>
     <footer>Copyright &copy;ز </footer>
