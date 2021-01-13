@@ -39,37 +39,41 @@ hukum.push(qolqolah); // array hukum index ke-15
 
 // implementasi hukum
 let raw = document.querySelector("#rawWord").value;
-let regex = new RegExp(hukum.join("|"), "mig");
+let regex = new RegExp(hukum.join("|"), "mi");
 let found = raw.match(regex);
-
 let indexTajwid = [];
 let j = 0;
 // let k = 0;
+let fix = [];
 while(j < hukum.length) {
     const el = hukum[j];
-    let regexItem = new RegExp(el,'mgi');
+    let regexItem = new RegExp(el,'mi');
     let match = raw.match(regexItem);
     if (match) {
+        fix.push(match[0])
         indexTajwid.push(j);
     }
     j++;
 }
+console.log(fix);
+console.log(indexTajwid);
 
 const element = document.getElementById("rawWord");
 let innerHtml = element.value;
 
-if (found.length > 0) {
+if (fix.length > 0) {
     let i = 0;
-    while (i < found.length) {
-        const idx = innerHtml.indexOf(found[i]);
+    while (i < fix.length) {
+        const idx = innerHtml.indexOf(fix[i]);
         if (idx >= 0) {
+            console.log(fix[i].length);
             let kodeTajwid = indexTajwid[i] ? `tajwid-${indexTajwid[i]}` : "";
             innerHtml =
                 innerHtml.substring(0, idx) +
                 `<tajwid class='${kodeTajwid}' >` +
-                innerHtml.substring(idx, idx + found[i].length) +
+                innerHtml.substring(idx, idx + fix[i].length) +
                 "</tajwid>" +
-                innerHtml.substring(idx + found[i].length);
+                innerHtml.substring(idx + fix[i].length);
         }
         i++;
     }
