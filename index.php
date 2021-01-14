@@ -54,8 +54,8 @@
 				<!--end of col-->
 			</div>
 		</main>
-		<footer>Copyright &copy;ز </footer>
 	</div>
+	<footer>Copyright &copy;ز </footer>
 </body>
 
 </html>

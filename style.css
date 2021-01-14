@@ -44,13 +44,13 @@ ul.sifat {
 
 footer {
     clear: both;
-    /* height: 200px; */
-    position: relative;
+    height: 10px;
+    position: fixed;
     background: black;
     /* margin-top: 5vh; */
     color: white;
     padding: 10px;
-    top: 0px;
+    /* top: 0px; */
     bottom: 0px;
     left: 0px;
     right: 0px;

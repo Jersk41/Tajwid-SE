@@ -18,8 +18,8 @@
 <body>
     <div class="container-fluid">
         <main role="main">
-            <h2 class='display-3' id='arab'><?= $_POST['keyword']?></h2>
-            <span class='display-4'>Makhroj & Sifat :</span>
+            <div class='text-center' id='arab'><?= htmlspecialchars($_POST['keyword'])?></div>
+            <span>Makhroj & Sifat :</span>
             <ul>
                 <?php
                 header('Content-type: text/html; charset=UTF-8');
@@ -40,7 +40,7 @@
                             if ($row['hijaiyah']== $h) {
                                 // $index++;
                                 // cetak nama makhroj dan artinya
-                                echo "<li class='huruf' id='$h'>$h : $row[arti_makhroj] ($row[nama_makhroj])</li>";
+                                echo "<li class='huruf' id='$h'>$h : $row[arti_makhroj] ($row[nama_makhroj])<i class='fa fa-arrow-down'></i></li>";
                                 echo "<div class='desc-$h' style='display:none;'>$row[deskripsi]</div>";
                                 // mengambil nama sifat dan jenisnya berdasarkan id huruf
                                 $parameter = "nama_sifat,jenis_sifat";
@@ -75,8 +75,15 @@
                 }
                 ?>
                 <script>
+                let i = 0;
                     $('li.huruf').click(ev=>{
                         // console.log(ev.target);
+                        if (i % 2 == 0) {
+                            $(`.desc-${ev.target.id} i`).toggleClass("fa fa-arrow-up");
+                        }else{
+                            $(`.desc-${ev.target.id} i`).toggleClass("fa fa-arrow-down");
+                        }
+                        i++;
                         $(`.desc-${ev.target.id}`).toggle('slow');
                     });
                     $('.sifat li').click(e=>{
