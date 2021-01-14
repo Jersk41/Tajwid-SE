@@ -7,9 +7,9 @@
     <title>Hijaiyah Search Enginer</title>
     <link rel="stylesheet" href="style.css">
     <!-- framework -->
-    <script src="library/jquery-3.5.1.min.js"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="js/bootstrap.min.js"></script>
+    <script src="dist/js/jquery-3.5.1.min.js"></script>
+	<link href="dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="dist/js/bootstrap.min.js"></script>
 	<!------ Include the above in your HEAD tag ---------->
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
@@ -24,7 +24,7 @@
         <ol>
             <?php
             header('Content-type: text/html; charset=UTF-8_');
-            include_once "controller.php";
+            include_once "library/controller.php";
             if(isset($_POST['submit'])){
                 // ambil raw data dari form
                 $keywords = $_POST['keys'];
@@ -50,8 +50,22 @@
                             // tampilkan tiap sifatnya
                             echo "<ul class='sifat'>";
                             foreach ($res as $r) {
+                                // ambil data pengertian sifat
+                                $sifat = getSifatMean($r['nama_sifat']);
+                                $bahasa = "";
+                                $istilah = "";
+                                // buat perulangan untuk membaca data pengertian sifat
+                                foreach ($sifat as $s) {
+                                    /* jika nama sifat dari data pengertian dan db cocok
+                                    *  maka string bahsa dan istilah diisi */
+                                    if ($s['nama']==$r['nama_sifat']) {
+                                        $bahasa = $s['bahasa'];
+                                        $istilah = $s['istilah'];
+                                    }
+                                }
+                                // menampilkan nama sifat beserta pengertiannya (dlm bentuk collapse)
                                 echo "<li id='" . strtolower($r['nama_sifat']) . "-$h' >$r[nama_sifat]</li>";
-                                echo "<div class='desc-".strtolower($r['nama_sifat']). "-$h' style='display:none;'>$r[nama_sifat]</div>";
+                                echo "<div class='desc-".strtolower($r['nama_sifat']). "-$h' style='display:none;'>$bahasa<br>$istilah</div>";
                             }
                             echo "</ul>";
                             $index++;
