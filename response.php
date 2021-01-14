@@ -18,78 +18,80 @@
 </head>
 
 <body>
-    <main>
-        <h2 class='display-3' id='arab'><?= $_POST['keyword']?></h2>
-        <span class='display-4'>Makhroj & Sifat :</span>
-        <ul>
-            <?php
-            header('Content-type: text/html; charset=UTF-8');
-            include "library/controller.php";
-            if(isset($_POST['submit'])){
-                // ambil raw data dari form
-                $keywords = $_POST['keys'];
-                // pecah tulisan menjadi array
-                $wordArray = explode(',',$keywords);
-                // membersihkan data redudant(yang terduplikasi)
-                $keys = array_unique($wordArray);
-                $index = 0;
-                // buat perulangan berdasar data yang telah dibersihkan
-                foreach ($keys as $h) {
-                    # ambil data yang dibungkus dari controller.php
-                    foreach ($data as $row) {
-                        // cari data (jika cocok)
-                        if ($row['hijaiyah']== $h) {
-                            // $index++;
-                            // cetak nama makhroj dan artinya
-                            echo "<li class='huruf' id='$h'>$h : $row[arti_makhroj] ($row[nama_makhroj])</li>";
-                            echo "<div class='desc-$h' style='display:none;'>$row[deskripsi]</div>";
-                            // mengambil nama sifat dan jenisnya berdasarkan id huruf
-                            $parameter = "nama_sifat,jenis_sifat";
-                            $condition =  "id_huruf='$row[id_huruf]'";
-                            $res = readSingle($parameter,$condition);
-                            // tampilkan tiap sifatnya
-                            echo "<ul class='sifat'>";
-                            foreach ($res as $r) {
-                                // ambil data pengertian sifat
-                                $sifat = getSifatMean($r['nama_sifat']);
-                                $bahasa = "";
-                                $istilah = "";
-                                // buat perulangan untuk membaca data pengertian sifat
-                                foreach ($sifat as $s) {
-                                    /* jika nama sifat dari data pengertian dan db cocok
-                                    *  maka string bahsa dan istilah diisi */
-                                    if ($s['nama']==$r['nama_sifat']) {
-                                        $bahasa = $s['bahasa'];
-                                        $istilah = $s['istilah'];
+    <div class="container-fluid">
+        <main role="main">
+            <h2 class='display-3' id='arab'><?= $_POST['keyword']?></h2>
+            <span class='display-4'>Makhroj & Sifat :</span>
+            <ul>
+                <?php
+                header('Content-type: text/html; charset=UTF-8');
+                include "library/controller.php";
+                if(isset($_POST['submit'])){
+                    // ambil raw data dari form
+                    $keywords = $_POST['keys'];
+                    // pecah tulisan menjadi array
+                    $wordArray = explode(',',$keywords);
+                    // membersihkan data redudant(yang terduplikasi)
+                    $keys = array_unique($wordArray);
+                    $index = 0;
+                    // buat perulangan berdasar data yang telah dibersihkan
+                    foreach ($keys as $h) {
+                        # ambil data yang dibungkus dari controller.php
+                        foreach ($data as $row) {
+                            // cari data (jika cocok)
+                            if ($row['hijaiyah']== $h) {
+                                // $index++;
+                                // cetak nama makhroj dan artinya
+                                echo "<li class='huruf' id='$h'>$h : $row[arti_makhroj] ($row[nama_makhroj])</li>";
+                                echo "<div class='desc-$h' style='display:none;'>$row[deskripsi]</div>";
+                                // mengambil nama sifat dan jenisnya berdasarkan id huruf
+                                $parameter = "nama_sifat,jenis_sifat";
+                                $condition =  "id_huruf='$row[id_huruf]'";
+                                $res = readSingle($parameter,$condition);
+                                // tampilkan tiap sifatnya
+                                echo "<ul class='sifat'>";
+                                foreach ($res as $r) {
+                                    // ambil data pengertian sifat
+                                    $sifat = getSifatMean($r['nama_sifat']);
+                                    $bahasa = "";
+                                    $istilah = "";
+                                    // buat perulangan untuk membaca data pengertian sifat
+                                    foreach ($sifat as $s) {
+                                        /* jika nama sifat dari data pengertian dan db cocok
+                                        *  maka string bahsa dan istilah diisi */
+                                        if ($s['nama']==$r['nama_sifat']) {
+                                            $bahasa = $s['bahasa'];
+                                            $istilah = $s['istilah'];
+                                        }
                                     }
+                                    // menampilkan nama sifat beserta pengertiannya (dlm bentuk collapse)
+                                    echo "<li id='" . strtolower($r['nama_sifat']) . "-$h' >$r[nama_sifat]</li>";
+                                    echo "<div class='desc-".strtolower($r['nama_sifat']). "-$h' style='display:none;'>$bahasa<br>$istilah</div>";
                                 }
-                                // menampilkan nama sifat beserta pengertiannya (dlm bentuk collapse)
-                                echo "<li id='" . strtolower($r['nama_sifat']) . "-$h' >$r[nama_sifat]</li>";
-                                echo "<div class='desc-".strtolower($r['nama_sifat']). "-$h' style='display:none;'>$bahasa<br>$istilah</div>";
+                                echo "</ul>";
+                                $index++;
                             }
-                            echo "</ul>";
-                            $index++;
                         }
                     }
+                    // echo "Hasil pencarian : " . $index;
                 }
-                // echo "Hasil pencarian : " . $index;
-            }
-            ?>
-            <script>
-                $('li.huruf').click(ev=>{
-                    // console.log(ev.target);
-                    $(`.desc-${ev.target.id}`).toggle('slow');
-                });
-                $('.sifat li').click(e=>{
-                    // console.log(e);
-                    $(`.desc-${e.target.id}`).toggle(450);
-                });
-            </script>
-        </ol>
-        <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
-        <span id="arab" style="direction:rtl"></span>
-        <script src="script.js"></script>
-    </main>
+                ?>
+                <script>
+                    $('li.huruf').click(ev=>{
+                        // console.log(ev.target);
+                        $(`.desc-${ev.target.id}`).toggle('slow');
+                    });
+                    $('.sifat li').click(e=>{
+                        // console.log(e);
+                        $(`.desc-${e.target.id}`).toggle(450);
+                    });
+                </script>
+            </ol>
+            <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
+            <span id="arab" style="direction:rtl"></span>
+            <script src="script.js"></script>
+        </main>
+    </div>
     <footer>Copyright &copy;ز </footer>
 </body>
 

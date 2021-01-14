@@ -6,11 +6,11 @@
 	<meta name="description" content="Aplikasi web untuk membantu dalam mengetahui dan mencari hukum tajwid serta makhroj serta sifat huruf...">
     <meta name="author" content="Japar Sidik, M Alif Ramadhan, Imam Hasbi">
     <meta name="generator" content="v0.1.1">
-	<link rel="stylesheet" href="style.css">
 	<!-- bootstrap -->
-	<script src="library/jquery-3.5.1.min.js"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<script src="js/bootstrap.min.js"></script>
+	<script src="dist/js/jquery-3.5.1.min.js"></script>
+	<link href="dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 	<!------ Include the above in your HEAD tag ---------->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 		integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
