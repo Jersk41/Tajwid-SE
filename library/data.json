@@ -1,0 +1,28 @@
+{
+    "data": [{
+            "sifat": "Jahr",
+            "bahasa": "Menurt Bahasa ا لا علان وا لا طهلر\r\nAl I'Lanu Wal idHaru \r\nArtinya Berkumandang dan Jelas.",
+            "istilah": "Menurut Istilah انحبا س جر يا ن اللنفس عندالنطق بالحلرف\r\nIn hibasu jaryaninna fasyi I'da Nutqi Bil Harfi\r\nArtionya tertahannya nafas ketika mengucapkan huruf"
+        },
+        {
+            "sifat": "Hams",
+            "bahasa": "Menurut Bahasa الحس الخفي\r\nHissul Khofiyyu\r\nArtinya Perasan yang Ringan",
+            "istilah": "Menurut Istilah جريان النفس عندالنفطق بالحرف\r\nJaryaninna fasyi I'da Nutqi Bil Harfi\r\nArtinya Berjalannya nafas ketika mengucapkan huruf"
+        },
+        {
+            "sifat": "Rikhwah",
+            "bahasa": "Menurt Bahasa اللين\r\nAl Linnu\r\nArtinya Lemah lembut atau lunak",
+            "istilah": "Menurut Istilah جريان الصوة عندالنطق بااحرف\r\nJar yanusauti Ngindanutqi Bilharfi\r\nArtinya Berjalannya suara ketika mengucapkan huruf"
+        },
+        {
+            "sifat": "Syiddah",
+            "bahasa": "Menurut Bahasa القوة\r\nAl Quatu\r\nArtinya Kuat",
+            "istilah": "Menurut Istilah انحباس جريان الصوة عندالنطق بالحرف\r\nInhibasu jaryanishouti Ingdanutqi bilharfi\r\nArti tertahannya perjalanan suara ketika mengucapkan huruf"
+        },
+        {
+            "sifat": "Istifal",
+            "bahasa": "Menurut Bahasa الالحفا ض\r\nAl-Inhifadhu\r\nArtinya Merendah atau Turun",
+            "istilah": "Menurut Istilah انحفا اللسا ن عندالنطق بالحراف عن الحنك اعلىل الى الى قاعالفم\r\nArtinya merendahnya lidah ketika mengucapkan huruf, merendah dari langit-langit atas sampai kepelataran mulut"
+        }
+    ]
+}
