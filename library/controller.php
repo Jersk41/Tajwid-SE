@@ -30,5 +30,4 @@ function getSifatMean($name)
     // kembalikan data berupa array
     return $array;
 }
-getSifatMean("Jahr");
 ?>

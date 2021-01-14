@@ -1,7 +1,6 @@
 <?php
 class Db
 {
-    public $conn;
     // mengkonstuksi koneksi
     public function __construct() {
         $this->conn = new mysqli("localhost","root","","db_tajwid");
