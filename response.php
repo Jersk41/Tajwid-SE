@@ -19,12 +19,12 @@
 
 <body>
     <main>
-        <h2 id='arab'><?= $_POST['keyword']?></h2>
-        <h3>Makhroj & Sifat : </h3>
-        <ol>
+        <h2 class='display-3' id='arab'><?= $_POST['keyword']?></h2>
+        <span class='display-4'>Makhroj & Sifat :</span>
+        <ul>
             <?php
-            header('Content-type: text/html; charset=UTF-8_');
-            include_once "library/controller.php";
+            header('Content-type: text/html; charset=UTF-8');
+            include "library/controller.php";
             if(isset($_POST['submit'])){
                 // ambil raw data dari form
                 $keywords = $_POST['keys'];
@@ -87,9 +87,7 @@
             </script>
         </ol>
         <input type="hidden" name="raw" id="rawWord" value="<?= $_POST['keyword']?>">
-        <!-- <div id='hasil'> </div> -->
-        <!-- <span id="arab" style="direction:rtl"></span> -->
-        
+        <span id="arab" style="direction:rtl"></span>
         <script src="script.js"></script>
     </main>
     <footer>Copyright &copy;ز </footer>
