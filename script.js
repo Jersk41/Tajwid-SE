@@ -55,8 +55,8 @@ while(j < hukum.length) {
     }
     j++;
 }
-console.log(fix);
-console.log(indexTajwid);
+// console.log(fix);
+// console.log(indexTajwid);
 
 const element = document.getElementById("rawWord");
 let innerHtml = element.value;
@@ -66,7 +66,7 @@ if (fix.length > 0) {
     while (i < fix.length) {
         const idx = innerHtml.indexOf(fix[i]);
         if (idx >= 0) {
-            console.log(fix[i].length);
+            // console.log(fix[i].length);
             let kodeTajwid = indexTajwid[i] ? `tajwid-${indexTajwid[i]}` : "";
             innerHtml =
                 innerHtml.substring(0, idx) +
