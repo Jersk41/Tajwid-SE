@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 10:07 AM
+-- Generation Time: Jan 14, 2021 at 04:08 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_tajwid`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deskripsi`
+--
+
+CREATE TABLE `deskripsi` (
+  `id_pembahasan` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `bahasa` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `istilah` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `deskripsi`
+--
+
+INSERT INTO `deskripsi` (`id_pembahasan`, `bahasa`, `istilah`) VALUES
+('p01', 'Menurt Bahasa ا لا علان وا لا طهلر\r\nAl I\'Lanu Wal idHaru \r\nArtinya Berkumandang dan Jelas.', 'Menurut Istilah انحبا س جر يا ن اللنفس عندالنطق بالحلرف\r\nIn hibasu jaryaninna fasyi I\'da Nutqi Bil H'),
+('p02', 'Menurut Bahasa الحس الخفي\r\nArtinya Perasan yang Ringan \r\nجريان النفس عندالنفطق بالحرف\r\nArtinya Berja', 'Menurut Istilah جريان النفس عندالنفطق بالحرف\r\nArtinya Berjalannya nafas ketika mengucapkan\r\n'),
+('p03', 'Menurt Bahasa اللين\r\nAl Linnu\r\nArtinya Lemah lembut atau lunak', 'Menurut Istilah جريان الصوة عندالنطق بااحرف\r\nJar yanusauti Ngindanutqi Bilharfi\r\nArtinya Berjalannya'),
+('p04', 'Menurut Bahasa القوة\r\nAl Quatu\r\nArtinya Kuat', 'Menurut Istilah انحباس جريان الصوة عندالنطق بالحرف\r\nInhibasu jaryanishouti Ingdanutqi bilharfi\r\nArti'),
+('p05', 'Menurut Bahasa الالحفا ض\r\nArtinya Merendah atau Turun', 'Menurut Istilah انحفا اللسا ن عندالنطق بالحراف عن الحنك اعلىل الى الى قاعالفم\r\nArtinya merendahnya L'),
+('p06', '', ''),
+('p07', 'Menurut Bahasa \r\nالافتراق\r\nArtinya Terpisah atau Terbuka', 'Meneurut Istilah\r\nانفتا ح مابين السان والحنق الا على حتا يحرج الريح ممابينهما عند النطق بالحرف\r\nArti'),
+('p08', 'Menurut Bahasa\r\nالالصاف\r\nArtinya Menempel atau Melekat', 'Menurut Istilah \r\nتلاص ق مايحاد السان من الحنك اعلى على السان عندالنطق بالحرف\r\nArtinya Menempel atau'),
+('p09', 'Menurut Bahasa\r\nالمنع\r\nArtinya Tertahan', 'Menurut Istilah\r\nتقل النطق بالحرف لحرو من غيرطرف ا لسان والشفتين\r\nArtinya beratnya suaranya ketika m'),
+('p10', 'Menurut Bahasa\r\nحدةالسان اى طلاقته\r\nArtinya Batas lidah yakni ujung lancipnya', 'Menurut Istilah\r\nخفاةالنطق بالحرف لحروجه من دلق لسان واشفة اي طر فيهما\r\nArtinya Ringannya suara keti'),
+('p11', 'Menurut Bahasa \r\nالا عندال\r\nArtinya Pertengahan atau sedang ', 'Menurut Istilah\r\nاعتد الالصوةعندالنطق بالحرف\r\nArtinya Pertengahan suara ketika mengucapkan huruf'),
+('', '', '');
 
 -- --------------------------------------------------------
 
@@ -89,23 +119,23 @@ CREATE TABLE `makhroj` (
 --
 
 INSERT INTO `makhroj` (`id_makhroj`, `nama_makhroj`, `arti_makhroj`, `tempat_makhroj`, `deskripsi`) VALUES
-('m1', 'Al-Jauf', 'Lubang Mulut', 'Al-Jauf', ''),
-('m10', 'Thorful Lisani Tahtal makhroji', 'Ujung Lidah bagian Bawah Makroj ل (Lam ) ', 'Al-Lisan', ''),
-('m11', 'Dhorurrosil Lisani', 'Punggung Pangkal Lidah', 'Al-Lisan', ''),
-('m12', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Atas Bagian Dalam', 'Al-Lisan', ''),
-('m13', 'Thorful Lisani Wamin FauQis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Bawah', 'Al-Lisan', ''),
-('m14', 'Thorful Lisani Ma\'A Athrofis tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Ujung Gigi Seri Atas', 'Al-Lisan', ''),
-('m15', 'Mimba\'A Nis Tsafatis Sufla Ma\'A Athrofis tsanayal ', 'Perut Bibir Bawah Bagian Dalam Dirapatkan dengan Ujung Gigi Seri atas', 'Asy-Syafatain', ''),
-('m16', 'Bainasyafatani', 'Diantara 2(dua) Bibir', 'Asy-Syafatain', ''),
-('m17', 'Al-Khoisum', 'Lubang Hidung', 'Al-Khoisum', ''),
-('m2', 'Aqshal halqi', 'Pangkal Tenggorokan', 'Al-Halaq', ''),
-('m3', 'Wasthul halqi', 'Tengah Tenggorokan', 'Al-Halaq', ''),
-('m4', 'Adnal halqiy', 'Ujung Tenggorokan', 'Al-Halaq', ''),
-('m5', 'Aqshal Lisani Fauqu', 'Pangkal Lidah Bagian Atas', 'Al-Lisan', ''),
-('m6', 'Aqshal Lisani Asfalu', 'Pangkal Lidah Bagian Bawah', 'Al-Lisan', ''),
-('m7', 'Wasthul Lisani', 'Tengah Tengah Lidah', 'Al-Lisan', ''),
-('m8', 'Hafatil Lisani Ma\'A Adrosi', 'Dua Samping Lidah Samping Kiri atau Kanan Dirapat dengan Gigi graham', 'Al-Lisan', ''),
-('m9', 'Ad\'dnal Lisani Limun TaHaHa', 'Ujung Lidah Sampai Akhirnya', 'Al-Lisan', '');
+('m1', 'Al-Jauf', 'Lubang Mulut', 'Al-Jauf', 'Menurut bait dari Al-Jazariyah\r\nَأَلِـفُ الـجَـوْفِ4 وأُخْتَـاهَـا وَهِــي * حُــرُوفُ مَــدٍّ للْـهَـوَاءِ تَنْـتَـهِـي\r\nYang Artinya Maka pada rongga yang mencakup rongga tenggorokan hingga rongga mulut, terdapat Alif dan saudari-saudarinya yakni huruf-huruf mad (Wawu mad dan Ya mad)\r\nyang berhenti seiring dengan berhentinya nafas.'),
+('m10', 'Thorful Lisani Tahtal Makhroji', 'Ujung Lidah bagian Bawah Makroj ل (Lam ) ', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالنُّونُ مِـنْ طَرَفِـهِ تَحْـتُ اجْعَـلُـوا\r\nArtinya Dan huruf Nun keluar dari ujung lidah yang bersentuhan dengan langit-langit di bawah tempat keluarnya huruf Lam, lebih dekat ke gusi gigi seri atas.'),
+('m11', 'Dhorurrosil Lisani', 'Punggung Pangkal Lidah', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالــرَّا يُدَانِـيـهِ لِظَـهْـرٍ أَدْخَـلُ\r\nAdapun huruf Ra keluar dekat dengan tempat keluarnya huruf Nun, namun sedikit masuk ke punggung lidah, yakni bagian ujung lidah yang dekat dengan tengah lidah.'),
+('m12', 'Thorful Lisani Ma\'A Athrofis Tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Atas Bagian Dalam', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالطَّـاءُ وَالـدَّالُ وَتَـا مِـنْـهُ وَمِـنْ* عُلْيَـا الثَّنَـايَـا\r\nArtinya Huruf Tha, Dal, dan Ta keluar dari bagian ujung lidah yang bersentuhan dengan bagian belakang gigi seri atas'),
+('m13', 'Thorful Lisani Wamin FauQis Tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Pangkal Gigi Seri Bawah', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوالصَّفِـيْـرُ مُسْتَـكِـنْ * مِنْهُ وَمِـنْ فَـوْقِ الثَّنَـايَـا السُّفْـلَـى\r\n Huruf-huruf Shafir (yakni Shad, Zay, dan Sin) keluar bila ujung lidah tegak/ sejajar '),
+('m14', 'Thorful Lisani Ma\'A Athrofis Tsanayal Ulya', 'Ujung Lidah Dirapatkan dengan Ujung Gigi Seri Atas', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالـظَّـاءُ وَالــذَّالُ وَثَــا لِلْعُـلْـيَـا\r\nArtinya Dan mendekat ke atas gigi seri bawah. Adapun huruf Zha, Dzal, dan Tsa lebih tinggi lagi'),
+('m15', 'Mimba\'A Nis Tsafatis Sufla Ma\'A Athrofis Tsanayal ', 'Perut Bibir Bawah Bagian Dalam Dirapatkan dengan Ujung Gigi Seri atas', 'Asy-Syafatain', 'Menurut bait dari Al-Jazariyah\r\n فَالْفَـا مَـعَ اطْـرافِ الثَّنَايَـا المُشْرِفَـهْ\r\nkni keluar dari persentuhan ujung lidah dengan ujung gigi seri atas. Dan dari perut bibir bawah yang bersentuhan dengan ujung gigi seri atas keluar huruf Fa.'),
+('m16', 'Bainasyafatani', 'Diantara 2(dua) Bibir', 'Asy-Syafatain', 'Menurut bait dari Al-Jazariyah\r\n لِلشَّفَتَـيْـنِ الْــوَاوُ بَــاءٌ مِـيْــمُ\r\nArtinya Dari dua bibir keluar huruf Wawu, Ba, dan Mim.'),
+('m17', 'Al-Khoisum', 'Lubang Hidung', 'Al-Khoisum', 'Menurut bait dari Al-Jazariyah\r\nوَغُـنَّــةٌ مَخْـرَجُـهَـا الخَـيْـشُـومُ\r\nSedangkan huruf-huruf Ghunnah (suara dengung pada Nun dan Mim) tempat keluarnya adalah rongga hidung.\r\n - Gunnah Musyaddah\r\n - Idgom Bigunah\r\n - Iqlab, dan\r\n - Ikhfa'),
+('m2', 'Aqshal Halqi', 'Pangkal Tenggorokan', 'Al-Halaq', 'Menurut bait dari Al-Jazariyah\r\n ثُـمَّ لأَقْصَـى الحَـلْـقِ هَـمْـزٌ هَـاءُ\r\nArtinya Kemudian pada tenggorokan yang paling jauh dari rongga mulut, tepatnya pada pangkal pita suara (laring), keluar dua huruf: Hamzah dan Ha.'),
+('m3', 'Wasthul Halqi', 'Tengah Tenggorokan', 'Al-Halaq', 'Menurut bait dari Al-Jazariyah\r\nثُــمَّ لِـوَسْـطِـهِ فَـعَـيْـنٌ حَـــاءُ\r\nArtiinya Kemudian pada tenggorokan bagian tengah, yakni pada katup epiglotis (lisaanul mizmaar) keluar huruf ‘Ain dan Ha,'),
+('m4', 'Adnal Halqiy', 'Ujung Tenggorokan', 'Al-Halaq', 'Menurut bait dari Al-Jazariyah\r\nأَدْنَــاهُ غَـيْـنٌ خَـاؤُهَـا\r\nArtinya Pada tenggorokan yang paling dekat dengan rongga mulut, keluar huruf Ghain dan Kha,'),
+('m5', 'Aqshal Lisani Fauqu', 'Pangkal Lidah Bagian Atas', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوالْـقَـافُ * أَقْصَـى اللِّسَـانِ فَـوْقُ\r\nAdapun huruf Qaf keluar dari pangkal lidah yang bersentuhan dengan langit- langit atas, yakni langit-langit yang lunak.'),
+('m6', 'Aqshal Lisani Asfalu', 'Pangkal Lidah Bagian Bawah', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nثُــمَّ الْـكَـافُ * أَسْفَـلُ\r\nArtinya Kemudian huruf Kaf Tempat keluarnya di bawah huruf Kaf, yakni persentuhan antara pangkal lidah dengan langit-langit yang keras dan yang lunak sekaligus, sedikit di bawah tempat keluarnya huruf Kaf.'),
+('m7', 'Wasthul Lisani', 'Tengah Tengah Lidah', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالْوَسْـطُ فَجِيـمُ الشِّـيـنُ يَـا\r\nArtinya Pada tengah lidah keluar huruf Jim bila disentuhkan ke langit-langit, serta keluar huruf Syin dan Ya bila digerakkan mendekati langit-langit.'),
+('m8', 'Hafatil Lisani Ma\'A Adrosi', 'Dua Samping Lidah Samping Kiri atau Kanan Dirapat dengan Gigi graham', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالـضَّـادُ مِــنْ حَافَـتِـهِ إِذْوَلِـيَــا * لاضْرَاسَ مِـنْ أَيْـسَـرَ أَوْ يُمْنَـاهَـا\r\nHuruf Dhad keluar dari sisi lidah yang memanjang dari pangkal lidah hingga ke ujung lidah, saat bersentuhan denganGigi geraham, baik yang sebelah kiri ataupun sebelah kanan, bahkan bisa juga kedua sisi lidah disentuhkan dengan gigi geraham yang kiri dan yang kanan sekaligus.'),
+('m9', 'Ad\'dnal Lisani Limun TaHaHa', 'Ujung Lidah Sampai Akhirnya', 'Al-Lisan', 'Menurut bait dari Al-Jazariyah\r\nوَالـــلاَّمُ أَدْنَــاهَــا لِمُنْـتَـهَـاهَـا\r\nHuruf Lam keluar dari ujung sisi lidah yang merupakan akhir dari tempat keluarnya huruf Dhad di sebelah kiri melingkar hingga sebelah kanan, melalui akhir dari ujung sisi lidah pada bagian depan (kepala lidah). Disentuhkan dengan langit-langit yang dekat dengan gusi gigi seri atas.');
 
 -- --------------------------------------------------------
 
